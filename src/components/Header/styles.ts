@@ -23,25 +23,25 @@ export const Image = styled.img`
   align-items: center;
 `;
 
-// export const Nav = styled.nav`
-//   background-color: #FFFFFF;
-//   border-radius: 10px;
-//   width: 416px;
-//   padding: 16px;
-//   margin: auto;
+export const Nav = styled.nav`
+  background-color: ${(props) => props.theme["shape01"]};
+  border-radius: 10px;
+  width: 416px;
+  padding: 16px;
+  margin: auto;
 
-//   border: 1px solid #DCE2E6;
+  border: 1px solid ${(props) => props.theme["shape02"]};
 
-//   display: flex;
-//   align-items: center;
+  display: flex;
+  align-items: center;
   
 
-//  input {
-//     height: 100%;
-//     flex: 1;
-//     background: transparent;
-//     border: 0;
-//     color: #123952;
+  input {
+    height: 100%;
+    flex: 1;
+    background: transparent;
+    border: 0;
+    color: ${(props) => props.theme['titlePrimary']};
 
 //     display: flex;
 //     align-items: center;
@@ -53,7 +53,7 @@ export const Image = styled.img`
 //     border: 1px solid #DCE2E6;
 
 
-//   } */
+   }
 // }
 
 //   ::placeholder {
@@ -104,7 +104,7 @@ export const Image = styled.img`
 //         background-color: #eba417;
 //       }
 //     }
-// `;
+`;
 
 // export const Button = styled.button`
 //     margin-left: auto;

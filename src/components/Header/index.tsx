@@ -3,7 +3,7 @@ import {
   Container,
   HeaderContent,
   Image,
-  // Nav,
+  Nav,
   // Button
 } from "./styles";
 
@@ -17,17 +17,17 @@ export function Header(){
     <Container>
       <HeaderContent>
         <Link href="/" prefetch><Image src="/logo.png"/></Link>
-       {/*<Nav>
-            <input 
-              placeholder="Qual cidade você"
-            />
-            <MagnifyingGlass 
-              size={20} 
-              color="#A0ACB2"
-            />
-        </Nav>
-        <Button><Link href="/" prefetch>Anunciar</Link></Button>
-       */}
+        <Nav>
+          <input 
+            placeholder="Qual cidade você"
+          />
+          <MagnifyingGlass 
+            size={20} 
+            color="#A0ACB2"
+          />
+          </Nav>
+        {/* <Button><Link href="/" prefetch>Anunciar</Link></Button> */}
+       
       </HeaderContent> 
     </Container>
   )
