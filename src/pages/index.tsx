@@ -12,6 +12,7 @@
 //   Span,
 // } from './styles';
 
+import { Title, Wrapper } from '../styles/home'
 import Head from 'next/head';
 // import { useEffect, useState } from 'react';
 // import Link from 'next/link';
@@ -34,13 +35,13 @@ export default function Home() {
       <title>Inicio | Home</title>
     </Head>
 
-    <h1>Teste</h1>
+    
 
     {/* <Header/> */}
-      {/* <Wrapper>
+     <Wrapper>
         <Title>Selecione uma Cidade</Title>
 
-        <Cards>
+         {/* <Cards>
           {cities.map(city => {
             return (
               <Card key={city.city}>
@@ -52,8 +53,8 @@ export default function Home() {
               </Card>
             )
           })}
-        </Cards>
-      </Wrapper> */}
+        </Cards>*/}
+      </Wrapper> 
   </>
   )
 }
