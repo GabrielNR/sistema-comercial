@@ -1,7 +1,10 @@
+import Head from 'next/head';
+
+import { Header } from '../components/Header';
 // import { GetStaticProps } from 'next';
 // import { getPrismicClient } from '@/services/prismic';
 // import Prismic from '@prismicio/client'
-// import { Header } from '../components/Header';
+import { Title, Wrapper } from '../styles/home'
 // import { 
 //   Wrapper,
 //   Title,
@@ -11,9 +14,6 @@
 //   Text,
 //   Span,
 // } from './styles';
-
-import { Title, Wrapper } from '../styles/home'
-import Head from 'next/head';
 // import { useEffect, useState } from 'react';
 // import Link from 'next/link';
 // import { RichText } from 'prismic-dom'
@@ -34,10 +34,10 @@ export default function Home() {
     <Head>
       <title>Inicio | Home</title>
     </Head>
-
     
+    <Header/>
 
-    {/* <Header/> */}
+{/* Inicio do Main */}
      <Wrapper>
         <Title>Selecione uma Cidade</Title>
 
@@ -54,7 +54,12 @@ export default function Home() {
             )
           })}
         </Cards>*/}
-      </Wrapper> 
+      </Wrapper>
+{/* Fim do Main */}
+
+{/* Footer */}
+
+{/* Fim Footer */}
   </>
   )
 }
