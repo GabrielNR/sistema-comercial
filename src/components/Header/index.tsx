@@ -4,7 +4,8 @@ import {
   HeaderContent,
   Image,
   Nav,
-  // Button
+  Buttons,
+  Button
 } from "./styles";
 
 import { FaGoogle } from 'react-icons/fa'
@@ -26,8 +27,10 @@ export function Header(){
             color="#A0ACB2"
           />
           </Nav>
-        {/* <Button><Link href="/" prefetch>Anunciar</Link></Button> */}
-       
+          <Buttons>
+            <Button><Link href="/" prefetch>Anunciar</Link></Button>
+            <Button><Link href="/" prefetch>GuiaCast</Link></Button>
+          </Buttons>
       </HeaderContent> 
     </Container>
   )

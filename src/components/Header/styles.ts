@@ -37,38 +37,34 @@ export const Nav = styled.nav`
   
 
   input {
-    height: 100%;
     flex: 1;
     background: transparent;
     border: 0;
     color: ${(props) => props.theme['titlePrimary']};
 
-//     display: flex;
-//     align-items: center;
-//     gap: 0.75px;
-//     outline: none;
-//     /* width: 100%;
-//     height: 100%;
-//     outline: none;
-//     border: 1px solid #DCE2E6;
-
-
+     display: flex;
+     align-items: center;
+     gap: 0.75px;
+     outline: none;
+     /* border: 1px solid ${(props) => props.theme["shape02"]}; */
+     /* width: 100%;
+     height: 100%;
+     outline: none;*/
    }
-// }
 
-//   ::placeholder {
-//     margin-left: 16px;
-//     font-style: normal;
-//     font-weight: 400;
-//     font-size: 16px;
-//     line-height: 26px;
+   ::placeholder {
+      margin-left: 16px;
+     font-style: normal;
+     font-weight: 400;
+     font-size: 16px;
+     line-height: 26px;
 
-//     color: #A0ACB3;
-//     }
+      color: #A0ACB3;
+  }
 
-//     svg {
-//     margin-right: 16px;
-//   }
+    svg {
+     margin-right: 16px;
+   }
 
 //     a {
 //       display: inline-block;
@@ -106,37 +102,43 @@ export const Nav = styled.nav`
 //     }
 `;
 
-// export const Button = styled.button`
-//     margin-left: auto;
-//     height: 3rem;
-//     border-radius: 10px;
-//     background: #DDE9F0;
-//     border: 0;
-//     padding: 0 1.5rem;
-  
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-  
-//     color: #115D8C;
-//     font-weight: normal;
+export const Buttons = styled.div`
+  display: flex;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+`;
 
-//     svg {
-//       width: 20px;
-//       height: 20px;
-//     }
+export const Button = styled.button`
+  margin-left: auto;
+  height: 3rem;
+  border-radius: 10px;
+  background: #DDE9F0;
+  border: 0;
+  padding: 0 1.5rem;
   
-//     svg:first-child{
-//       margin-right: 1rem;
-//     }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #115D8C;
+  font-weight: normal;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
   
-//     svg.closeIcon {
-//       margin-left: 1rem;
-//     }
+  svg:first-child{
+    margin-right: 1rem;
+  }
   
-//     transition: filter 0.2s;
+  svg.closeIcon {
+    margin-left: 1rem;
+  }
   
-//     &:hover {
-//       filter: brightness(0.8);
-//     }
-// `;
+  transition: filter 0.2s;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+ `;
