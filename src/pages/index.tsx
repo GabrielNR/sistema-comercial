@@ -1,10 +1,23 @@
 import Head from 'next/head';
+import Link from 'next/link';
+import { GetStaticProps } from 'next';
+
+import { RichText } from 'prismic-dom';
+import { getPrismicClient } from '../services/prismic';
+import Prismic from '@prismicio/client'
 
 import { Header } from '../components/Header';
-// import { GetStaticProps } from 'next';
-// import { getPrismicClient } from '@/services/prismic';
-// import Prismic from '@prismicio/client'
-import { Title, Wrapper } from '../styles/home'
+
+
+import { 
+  Title, 
+  Wrapper,
+  Cards,
+  Card,
+  Image,
+  Text,
+  Span, 
+} from '../styles/home'
 // import { 
 //   Wrapper,
 //   Title,
@@ -14,20 +27,17 @@ import { Title, Wrapper } from '../styles/home'
 //   Text,
 //   Span,
 // } from './styles';
-// import { useEffect, useState } from 'react';
-// import Link from 'next/link';
-// import { RichText } from 'prismic-dom'
 
-// interface CitiesProps {
-//   cities: {
-//     slug: string;
-//     city: string;
-//     thmbnail: string;
-//     qtd: number;
-//   }
-// }
+interface CitiesProps {
+  cities: {
+    slug: string;
+    city: string;
+    thmbnail: string;
+    qtd: number;
+  }
+}
 
-export default function Home() {
+export default function Home({ cities }: CitiesProps ) {
 
   return (
     <>
@@ -41,7 +51,7 @@ export default function Home() {
      <Wrapper>
         <Title>Selecione uma Cidade</Title>
 
-         {/* <Cards>
+         <Cards>
           {cities.map(city => {
             return (
               <Card key={city.city}>
@@ -53,7 +63,7 @@ export default function Home() {
               </Card>
             )
           })}
-        </Cards>*/}
+        </Cards>
       </Wrapper>
 {/* Fim do Main */}
 
@@ -64,33 +74,33 @@ export default function Home() {
   )
 }
 
-// export const getStaticProps: GetStaticProps = async () => {
-//   const prismic = getPrismicClient() 
+export const getStaticProps: GetStaticProps = async () => {
+  const prismic = getPrismicClient() 
 
-//   const response = await prismic.query<any>([
-//     Prismic.predicates.at('document.type', 'cities')
-//   ], {
-//     fetch: ['cities.city, cities.thmbnail', 'cities.quantidade'],
-//     pageSize: 100
-//   })
+  const response = await prismic.query<any>([
+    Prismic.predicates.at('document.type', 'cities')
+  ], {
+    fetch: ['cities.city, cities.thmbnail', 'cities.quantidade'],
+    pageSize: 100
+  })
 
-//   console.log(JSON.stringify(response, null, 2))
+  console.log(JSON.stringify(response, null, 2))
 
-//   const cities = response.results.map(city => {
-//     return {
-//       slug: city.uid,
-//       city: RichText.asText(city.data.city),
-//       thmbnail: city.data.thmbnail.url,
-//       qtd: city.data.quantidade,
-//     }
-//   })
+  const cities = response.results.map(city => {
+    return {
+      slug: city.uid,
+      city: RichText.asText(city.data.city),
+      thmbnail: city.data.thmbnail.url,
+      qtd: city.data.quantidade,
+    }
+  })
 
-//   return {
-//     props: {
-//       cities
-//     }
-//   }
-// }
+  return {
+    props: {
+      cities
+    }
+  }
+}
 
 
 
