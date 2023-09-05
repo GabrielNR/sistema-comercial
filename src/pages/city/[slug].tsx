@@ -53,7 +53,8 @@ export default function city({ city }: CityProps){
 
       <Header/>
 
-      <ContentImage src={city.banner}/>
+      {/* <ContentImage src={city.banner}/> */} <ContentImage src=""/>
+     
 
       <Content>
         <ContentDescription>
