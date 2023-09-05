@@ -34,7 +34,7 @@ interface CitiesProps {
     city: string;
     thmbnail: string;
     qtd: number;
-  }
+  }[]
 }
 
 export default function Home({ cities }: CitiesProps ) {
