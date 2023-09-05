@@ -194,7 +194,7 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     descriptionspan: RichText.asText(response.data.descriptionspan),
     coffe_drinks: response.data.coffe_e_drinks,
     events: response.data.events,
-    local100: response.data.local100.map((local: any) => {
+    local100: response.data.local100.map((local: { thmbnail_local: { url: any; }; category: any; title_local: any; locale: { uid: any; }; }) => {
       return {
         thmbnail_local: local.thmbnail_local.url,
         category:  RichText.asText(local.category),
