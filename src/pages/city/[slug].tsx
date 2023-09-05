@@ -12,7 +12,7 @@ import {
   Image,
   Text,
   Span,
-} from './styles'
+} from '../../styles/city'
 
 import { FiCoffee, FiCalendar, FiLayers } from 'react-icons/fi'
 import { Header } from '../../components/Header'
@@ -107,7 +107,7 @@ export default function city({ city }: CityProps){
       </Content>
 
       <TopRated>
-            <h1>Top avaliados</h1>
+            {/* <h1>Top avaliados</h1> */}
 
           <Cards>
             {/* {city.local100.map(local => { */}
