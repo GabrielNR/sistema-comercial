@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { LocalProps } from '../pages/local/[slug]'
+// import { LocalProps } from '../pages/local/[slug]'
 
 
 
@@ -139,7 +139,7 @@ export const SocialMedia = styled.div`
     }
 `;
 
-export const Background = styled.section<LocalProps>`
+export const Background = styled.section`
   margin-top: -80px;
   flex: 1;
   background: url('/local/doce_companhiaVerical.png') no-repeat center;
