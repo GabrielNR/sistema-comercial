@@ -133,7 +133,7 @@ export default function place({ local }: LocalProps){
         </div>
 
       </Content>
-      <Background style={{backgroundImage: `url(${local.banner})`}}/>
+      {/* <Background style={{backgroundImage: `url(${local.banner})`}}/> */}
     </Container>
     <ContentMedia>
       <div>
