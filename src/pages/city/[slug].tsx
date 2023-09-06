@@ -53,8 +53,8 @@ export default function city({ city }: CityProps){
 
       <Header/>
 
-      {/* <ContentImage src={city.banner}/> */} <ContentImage src=""/>
-     
+
+      <ContentImage src={city.banner}/>
 
       <Content>
         <ContentDescription>
@@ -173,7 +173,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: true
+    fallback: 'blocking'
   }
 }
 
