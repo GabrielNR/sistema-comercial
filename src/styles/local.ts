@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { LocalProps } from '../pages/local/[slug]'
 
+
+
 export const Header = styled.header`
   height: 5rem;
   border-bottom: 1px solid #DCE2E5;
@@ -140,7 +142,7 @@ export const SocialMedia = styled.div`
 export const Background = styled.section<LocalProps>`
   margin-top: -80px;
   flex: 1;
-  /* background: url('/local/doce_companhiaVerical.png') no-repeat center; */
+  background: url('/local/doce_companhiaVerical.png') no-repeat center;
   background-size: cover;
 `;
 
