@@ -16,9 +16,13 @@ export const Title = styled.h1`
 `
 export const Cards = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 34px;
   margin-bottom: 36px;
+
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `;
 
 export const Card = styled.div`
@@ -28,10 +32,9 @@ export const Card = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 256px;
+  width: 100%;
   height: 176px;
   border-radius: 16px 16px 0 0;
-
 `;
 
 export const Text = styled.div`

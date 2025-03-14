@@ -31,6 +31,10 @@ export interface LocalProps {
     banner: string;
     title: string;
     description_local: string;
+    instagram: string;
+    facebook: string;
+    whatsapp: string;
+    phone: string;
     open: string;
     exit: string;
   }
@@ -95,32 +99,39 @@ export default function place({ local }: LocalProps){
         </div>
         <div>
           <h2>Formas de contato:</h2>
-
+          
+          
           <SocialMedia>
-            <div style={{
-               background: '#64B161'
-            }}>
-              <FaWhatsapp />
-            </div>
+            <a href={`https://wa.me/${local.whatsapp}`}>
+              <div style={{
+                background: '#64B161'
+              }}>
+                <FaWhatsapp />
+              </div>
+            </a>
 
-            <div style={{
-              background: '#F9373F'
-            }}>
-              <FaInstagram />
-            </div>
+            <a href={`${local.instagram}`}>
+              <div style={{
+                background: '#F9373F'
+              }}>
+                <FaInstagram />
+              </div>
+            </a>
 
-            <div style={{
-              background: '#3B5998'
-            }}>
-              <FaFacebook />
-            </div>
+            <a href={`${local.facebook}`}>
+              <div style={{
+                background: '#3B5998'
+              }}>
+                <FaFacebook />
+              </div>
+            </a>
 
             <div style={{
               background: '#D54344',
               width: '166px'
             }}>
               <FaPhone />
-              <span>(11) 3598 7815</span>
+              <span>{local.phone}</span>
             </div>
           </SocialMedia>
         </div>
@@ -135,7 +146,7 @@ export default function place({ local }: LocalProps){
       </Content>
       <Background />
     </Container>
-    <ContentMedia>
+    {/* <ContentMedia>
       <div>
       <h1>Youtube</h1>
       <iframe width="495" height="315"
@@ -157,14 +168,14 @@ export default function place({ local }: LocalProps){
             <img src='/carregar.png'/>
           </div>
         </Gallery>
-      </ContentMedia>
+      </ContentMedia> */}
     
-      <Doubts>
+      {/* <Doubts> */}
         {/* <p>Duvidas frequentes</p>
         <p>Duvidas frequentes</p>
         <p>Duvidas frequentes</p>
         <p>Duvidas frequentes</p> */}
-      </Doubts>
+      {/* </Doubts> */}
       
     </>
   )
@@ -195,10 +206,10 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
   const prismic = getPrismicClient() 
 
   const { slug } = context.params
-  console.log(slug)
+  // console.log(slug)
   const response = await prismic.getByUID<any>('locale', String(slug), {})
 
-  console.log(JSON.stringify(response, null, 2))
+  // console.log(JSON.stringify(response, null, 2))
 
 
 
@@ -208,7 +219,12 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     title: RichText.asText(response.data.title),
     description_local: RichText.asText(response.data.description_local),
     open: response.data.aberto, 
-    exit: response.data.fechado, 
+    exit: response.data.fechado,
+    instagram:response.data.instagram.url,
+    facebook:response.data.facebook.url,
+    whatsapp:response.data.whatsapp,
+    phone: response.data.phone
+
   }
 
   console.log(JSON.stringify(local, null, 2))

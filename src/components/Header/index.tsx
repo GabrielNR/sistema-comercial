@@ -28,10 +28,11 @@ export function Header(){
           />
           </Nav>
           <Buttons>
-            <Button><Link href="/" prefetch>Anunciar</Link></Button>
-            <Button><Link href="/" prefetch>GuiaCast</Link></Button>
+            <Button><Link href="https://wa.me/+5521967007447" prefetch>Anunciar</Link></Button>
+            {/* <Button><Link href="/" prefetch>GuiaCast</Link></Button> */}
           </Buttons>
       </HeaderContent> 
     </Container>
+    
   )
 }
