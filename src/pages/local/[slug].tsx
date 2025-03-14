@@ -224,7 +224,6 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     facebook:response.data.facebook.url,
     whatsapp:response.data.whatsapp,
     phone: response.data.phone
-
   }
 
   console.log(JSON.stringify(local, null, 2))
