@@ -59,7 +59,7 @@ export default function place({ local }: LocalProps){
     <Container>
       <Content>
         <h1>{local.title}</h1>
-        <p>{local.description_local}</p>
+        <div dangerouslySetInnerHTML={{ __html: local.description_local }}/>
         <div>
           <h2>Atendimento:</h2>
 
@@ -232,7 +232,7 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     slug: response.uid,
     banner: response.data.banner_local_vertical.url,
     title: RichText.asText(response.data.title),
-    description_local: RichText.asText(response.data.description_local),
+    description_local: RichText.asHtml(response.data.description_local),
     open: response.data.aberto, 
     exit: response.data.fechado,
     instagram:response.data.instagram.url,

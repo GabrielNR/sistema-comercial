@@ -33,6 +33,7 @@ interface CityProps {
     descriptionspan: string;
     coffe_drinks: number;
     events: number;
+    marketing: number
     local100: {
       thmbnail_local: string;
       category: string;
@@ -43,8 +44,17 @@ interface CityProps {
   }
 }
 
+
+
 export default function city({ city }: CityProps){
 
+  if (Array.isArray(city.local100)) {
+    const TotalLocales = city.local100.length;
+    console.log(TotalLocales);
+    } else {
+      // console.log('nao array');
+    }
+  
   return(
     <>
       <Head>
@@ -97,7 +107,7 @@ export default function city({ city }: CityProps){
                   <FiLayers size={40} color='#F25D27'/>
                 </div>
                 <hr/>
-                <p>2</p>
+                <p>{city.marketing}</p>
                 <span>
                   Marketing
                 </span>
@@ -205,6 +215,7 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     descriptionspan: RichText.asText(response.data.descriptionspan),
     coffe_drinks: response.data.coffe_e_drinks,
     events: response.data.events,
+    marketing: response.data.marketing,
     local100: response.data.local100.map((local: { thmbnail_local: { url: any; }; category: any; title_local: any; locale: { uid: any; }; }) => {
       return {
         thmbnail_local: local.thmbnail_local.url,
@@ -216,6 +227,7 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
   }
 
   console.log(JSON.stringify(city, null, 2))
+
 
   return {
     props: {
