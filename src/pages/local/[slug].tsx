@@ -107,7 +107,7 @@ export default function place({ local }: LocalProps){
           
           
           <SocialMedia>
-            <a href={`https://wa.me/${local.whatsapp}`}>
+            <a href={`https://wa.me/${local.whatsapp}`} target="_blank">
               <div style={{
                 background: '#64B161'
               }}>
@@ -115,7 +115,7 @@ export default function place({ local }: LocalProps){
               </div>
             </a>
 
-            <a href={`${local.instagram}`}>
+            <a href={`${local.instagram}`} target="_blank">
               <div style={{
                 background: '#F9373F'
               }}>
@@ -123,7 +123,7 @@ export default function place({ local }: LocalProps){
               </div>
             </a>
 
-            <a href={`${local.facebook}`}>
+            <a href={`${local.facebook}`} target="_blank">
               <div style={{
                 background: '#3B5998'
               }}>
@@ -181,6 +181,16 @@ export default function place({ local }: LocalProps){
         <p>Duvidas frequentes</p>
         <p>Duvidas frequentes</p> */}
       {/* </Doubts> */}
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+        <a href="https://wa.me/5521967007447"
+          style={{position: "fixed", width: 60, height:60, bottom:40, right: 40, backgroundColor: "#25d366", color: "#FFF", borderRadius: 50, textAlign: "center", fontSize: 30, boxShadow: "1px 1px 2px #888", zIndex: 1000}}
+          target="_blank"
+        >
+          <i style={{marginTop: 16}} className="fa fa-whatsapp">
+          
+        </i>
+      </a>
       
     </>
   )
