@@ -139,10 +139,10 @@ export const SocialMedia = styled.div`
     }
 `;
 
-export const Background = styled.section`
+export const Background = styled.img`
   margin-top: -80px;
   flex: 1;
-  background: url('/doce_companhiaVerical.png') no-repeat center;
+  /* background: url('/doce_companhiaVerical.png') no-repeat center; */
   background-size: cover;
 `;
 

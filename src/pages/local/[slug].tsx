@@ -37,6 +37,11 @@ export interface LocalProps {
     phone: string;
     open: string;
     exit: string;
+    address_state: string;
+    address_city: string;
+    address_road: string;
+    address_neighborhood: string;
+    house_number: string;
   }
 }
 
@@ -138,13 +143,13 @@ export default function place({ local }: LocalProps){
         <div className='Localizacao'>
           <h2>Endereço:</h2>
 
-          <p>São Paulo, São Paulo</p>
-          <p>Guilherme Gemalla, Jardim América</p>
-          <p>Nº 260</p>
+          <p>{local.address_city}, {local.address_state}</p>
+          <p>{local.address_road}, {local.address_neighborhood}</p>
+          <p>Nº {local.house_number}</p>
         </div>
 
       </Content>
-      <Background />
+      <Background src={local.banner} width={743} height={930}/>
     </Container>
     {/* <ContentMedia>
       <div>
@@ -223,7 +228,12 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     instagram:response.data.instagram.url,
     facebook:response.data.facebook.url,
     whatsapp:response.data.whatsapp,
-    phone: response.data.phone
+    phone: response.data.phone,
+    address_state: RichText.asText(response.data.address_state) || null,
+    address_city: RichText.asText(response.data.address_city) || null,
+    address_road: RichText.asText(response.data.address_road) || null,
+    address_neighborhood: RichText.asText(response.data.address_neighborhood) || null,
+    house_number: RichText.asText(response.data.house_number) || null
   }
 
   console.log(JSON.stringify(local, null, 2))
