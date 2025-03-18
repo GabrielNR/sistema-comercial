@@ -38,6 +38,12 @@ export interface LocalProps {
     phone: string;
     open: string;
     exit: string;
+    photo01: string,
+    photo02: string,
+    photo03: string,
+    photo04: string,
+    photo05: string,
+    photo06: string,
     address_state: string;
     address_city: string;
     address_road: string;
@@ -61,99 +67,115 @@ export default function place({ local }: LocalProps){
       <Content>
         <h1>{local.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: local.description_local }}/>
-        <div>
-          <h2>Atendimento:</h2>
+      
+          <div>
+            <h2>Atendimento:</h2>
 
-          <Service>
-            <div>
-              <span>Domingo</span>
-              <span>Fechado</span>
-            </div>
-
-            <div>
-              <span>Segunda</span>
-              <span>{local.open} - {local.exit}</span>
-            </div>
-
-            <div>
-              <span>Terça</span>
-              <span>{local.open} - {local.exit}</span>
-            </div>
-
-            <div>
-              <span>Quarta</span>
-              <span>{local.open} - {local.exit}</span>
-            </div>
-          </Service>
-
-          <Service>
-            <div>
-              <span>Quinta</span>
-              <span>{local.open} - {local.exit}</span>
-            </div>
-
-            <div>
-              <span>Sexta</span>
-              <span>{local.open} - {local.exit}</span>
-            </div>
-
-            <div>
-              <span>Sábado</span>
-              <span>{local.open} - {local.exit}</span>
-            </div>
-          </Service>
-        </div>
-        <div>
-          <h2>Formas de contato:</h2>
-          
-          
-          <SocialMedia>
-            <a href={`https://wa.me/${local.whatsapp}`} target="_blank">
-              <div style={{
-                background: '#64B161'
-              }}>
-                <FaWhatsapp />
+            <Service>
+              <div>
+                <span>Domingo</span>
+                <span>Fechado</span>
               </div>
-            </a>
 
-            <a href={`${local.instagram}`} target="_blank">
-              <div style={{
-                background: '#F9373F'
-              }}>
-                <FaInstagram />
+              <div>
+                <span>Segunda</span>
+                <span>{local.open} - {local.exit}</span>
               </div>
-            </a>
 
-            <a href={`${local.facebook}`} target="_blank">
-              <div style={{
-                background: '#3B5998'
-              }}>
-                <FaFacebook />
+              <div>
+                <span>Terça</span>
+                <span>{local.open} - {local.exit}</span>
               </div>
-            </a>
 
-            <div style={{
-              background: '#D54344',
-              width: '166px'
-            }}>
-              <FaPhone />
-              <span>{local.phone}</span>
-            </div>
-          </SocialMedia>
-        </div>
-        <div className='Localizacao'>
-          <h2>Endereço:</h2>
+              <div>
+                <span>Quarta</span>
+                <span>{local.open} - {local.exit}</span>
+              </div>
+            </Service>
 
-          <p>{local.address_city}, {local.address_state}</p>
-          <p>{local.address_road}, {local.address_neighborhood}</p>
-          <p>Nº {local.house_number}</p>
-        </div>
+            <Service>
+              <div>
+                <span>Quinta</span>
+                <span>{local.open} - {local.exit}</span>
+              </div>
 
+              <div>
+                <span>Sexta</span>
+                <span>{local.open} - {local.exit}</span>
+              </div>
+
+              <div>
+                <span>Sábado</span>
+                <span>{local.open} - {local.exit}</span>
+              </div>
+            </Service>
+          </div>
+       
+          <div>
+            <h2>Formas de contato:</h2>
+            
+            <SocialMedia>
+            {local.whatsapp === null ? <></> :
+              <>
+                <a href={`https://wa.me/${local.whatsapp}`} target="_blank">
+                  <div style={{
+                    background: '#64B161'
+                  }}>
+                    <FaWhatsapp />
+                  </div>
+                </a>
+               
+                <a href={`${local.instagram}`} target="_blank">
+                  <div style={{
+                    background: '#F9373F'
+                  }}>
+                    <FaInstagram />
+                  </div>
+                </a>
+
+                <a href={`${local.facebook}`} target="_blank">
+                  <div style={{
+                    background: '#3B5998'
+                  }}>
+                    <FaFacebook />
+                  </div>
+                </a>
+                </>
+              }
+
+
+              <div style={{
+                background: '#D54344',
+                width: '166px'
+              }}>
+                <FaPhone />
+                <span>{local.phone}</span>
+              </div>
+                
+              
+            </SocialMedia>
+            
+          </div>
+       
+
+       
+          <div className='Localizacao'>
+            <h2>Endereço:</h2>
+
+            <p>{local.address_city}, {local.address_state}</p>
+            {local.address_road === null ? <div/> :
+              <>
+                <p>{local.address_road}, {local.address_neighborhood}</p>
+                <p>Nº {local.house_number}</p>
+              </>
+            }
+          </div>
       </Content>
 
       <ContentLeft>
         <Background src={local.banner} width={743} height={930}/>
-      
+        
+
         <ContentMedia>
         <div>
         {/*<h1>Youtube</h1>
@@ -162,21 +184,22 @@ export default function place({ local }: LocalProps){
           </iframe>*/}
         </div>
         
-
-          <Gallery>
-            <h1>Galeria de fotos</h1>
-            <div>
-              <img src={local.banner}/>
-              <img src={local.banner}/>
-              
-            </div>
-            <div className='gallerySecondary'>
-              <img src={local.banner}/>
-              <img src={local.banner}/>
-              <img src={local.banner}/>
-              <img src={local.banner}/>
-            </div>
-          </Gallery>
+          {local.photo01 === null ? <div/> :
+            <Gallery>
+              <h1>Galeria de fotos</h1>
+              <div>
+                <img src={local.photo01}/>
+                <img src={local.photo02}/>
+                
+              </div>
+              <div className='gallerySecondary'>
+                <img src={local.photo03}/>
+                <img src={local.photo04}/>
+                <img src={local.photo05}/>
+                <img src={local.photo06}/>
+              </div>
+            </Gallery>
+          }
         </ContentMedia> 
       </ContentLeft>
     </Container>
@@ -242,10 +265,16 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     description_local: RichText.asHtml(response.data.description_local),
     open: response.data.aberto, 
     exit: response.data.fechado,
-    instagram:response.data.instagram.url,
-    facebook:response.data.facebook.url,
-    whatsapp:response.data.whatsapp,
-    phone: response.data.phone,
+    instagram:response.data.instagram.url || null,
+    facebook:response.data.facebook.url || null,
+    whatsapp:response.data.whatsapp || null,
+    phone: response.data.phone || null,
+    photo01: response.data.photo01 || null,
+    photo02: response.data.photo02 || null,
+    photo03: response.data.photo03 || null,
+    photo04: response.data.photo04 || null,
+    photo05: response.data.photo05 || null,
+    photo06: response.data.photo06 || null,
     address_state: RichText.asText(response.data.address_state) || null,
     address_city: RichText.asText(response.data.address_city) || null,
     address_road: RichText.asText(response.data.address_road) || null,
