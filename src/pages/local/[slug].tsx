@@ -49,6 +49,14 @@ export interface LocalProps {
     address_road: string;
     address_neighborhood: string;
     house_number: string;
+    gallery: {
+      photo01: string;
+      photo02: string;
+      photo03: string;
+      photo04: string;
+      photo05: string;
+      photo06: string;
+    }[]
   }
 }
 
@@ -183,23 +191,28 @@ export default function place({ local }: LocalProps){
           src="https://www.youtube.com/embed/tgbNymZ7vqY">
           </iframe>*/}
         </div>
-        
-          {local.photo01 === null ? <div/> :
+
             <Gallery>
               <h1>Galeria de fotos</h1>
-              <div>
-                <img src={local.photo01}/>
-                <img src={local.photo02}/>
-                
-              </div>
-              <div className='gallerySecondary'>
-                <img src={local.photo03}/>
-                <img src={local.photo04}/>
-                <img src={local.photo05}/>
-                <img src={local.photo06}/>
-              </div>
+              {local.gallery.map(local => {
+                return (
+                  <>
+                    <div>
+                      <img src={local.photo01}/>
+                      <img src={local.photo02}/>
+                      
+                    </div>
+                    <div className='gallerySecondary'>
+                      <img src={local.photo03}/>
+                      <img src={local.photo04}/>
+                      <img src={local.photo05}/>
+                      <img src={local.photo06}/>
+                    </div>
+                  </>
+                )
+              })}
+             
             </Gallery>
-          }
         </ContentMedia> 
       </ContentLeft>
     </Container>
@@ -218,7 +231,6 @@ export default function place({ local }: LocalProps){
           target="_blank"
         >
           <i style={{marginTop: 16}} className="fa fa-whatsapp">
-          
         </i>
       </a>
       
@@ -269,17 +281,31 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     facebook:response.data.facebook.url || null,
     whatsapp:response.data.whatsapp || null,
     phone: response.data.phone || null,
-    photo01: response.data.photo01 || null,
-    photo02: response.data.photo02 || null,
-    photo03: response.data.photo03 || null,
-    photo04: response.data.photo04 || null,
-    photo05: response.data.photo05 || null,
-    photo06: response.data.photo06 || null,
     address_state: RichText.asText(response.data.address_state) || null,
     address_city: RichText.asText(response.data.address_city) || null,
     address_road: RichText.asText(response.data.address_road) || null,
     address_neighborhood: RichText.asText(response.data.address_neighborhood) || null,
-    house_number: RichText.asText(response.data.house_number) || null
+    house_number: RichText.asText(response.data.house_number) || null,
+ 
+    gallery: response.data.gallery.map((
+      gallery: { 
+        photo01: { url: any; }; 
+        photo02: { url: any; }; 
+        photo03: { url: any; }; 
+        photo04: { url: any; }; 
+        photo05: { url: any; }; 
+        photo06: { url: any; }; 
+        
+      }) => {
+      return {
+        photo01: gallery.photo01.url,
+        photo02: gallery.photo02.url,
+        photo03: gallery.photo03.url,
+        photo04: gallery.photo04.url,
+        photo05: gallery.photo05.url,
+        photo06: gallery.photo06.url,
+      }
+    })
   }
 
   console.log(JSON.stringify(local, null, 2))
@@ -290,3 +316,11 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     }
   }
 }
+
+
+// photo01: response.data.gallery.photo01 || null,
+//     photo02: response.data.gallery.photo02 || null,
+//     photo03: response.data.gallery.photo03 || null,
+//     photo04: response.data.gallery.photo04 || null,
+//     photo05: response.data.gallery.photo05 || null,
+//     photo06: response.data.gallery.photo06 || null,
