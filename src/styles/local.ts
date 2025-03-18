@@ -65,10 +65,14 @@ export const Content = styled.section`
   }
 
   .Localizacao{
-      height: 200px;
+      /* height: 200px; */
       /* border: 1px solid #111; */
       padding: 2px;
     }
+
+  .youtube h2{
+    margin-bottom: 12px;
+  }
 `;
 
 export const Service = styled.div`
@@ -121,7 +125,7 @@ export const SocialMedia = styled.div`
       align-items: center;
       border-radius: 8px;
       margin-right: 16px;
-      margin-bottom: 24px;
+      margin-bottom: 16px;
     }
 
     svg {
@@ -139,6 +143,38 @@ export const SocialMedia = styled.div`
     }
 `;
 
+export const Site = styled.div`
+  display: flex;
+  flex-direction: row;
+
+    div {
+      display: flex;
+      height: 47px;
+      width: 175px;
+      background-color: blueviolet;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+      margin-right: 16px;
+      margin-bottom: 16px;
+    }
+
+    svg {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      width: 26px;
+      height: 26px;
+
+    } 
+
+    a {
+      margin-left: 18px;
+      color: white;
+    }
+`;
+
 export const ContentLeft = styled.div`
   margin: 0 auto
 
@@ -149,8 +185,8 @@ export const Background = styled.img`
   flex: 1;
   /* background: url('/doce_companhiaVerical.png') no-repeat center; */
   background-size: cover;
+  
 `;
-
 
 export const ContentMedia = styled.section`
   display: grid;
@@ -172,7 +208,6 @@ export const ContentMedia = styled.section`
       height: 311px;
     }
   }
-
 
 `;
 

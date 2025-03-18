@@ -12,6 +12,7 @@ import {
   Content,
   Service,
   SocialMedia,
+  Site,
   Background,
   ContentMedia,
   Gallery,
@@ -25,6 +26,7 @@ import { useRouter } from 'next/router';
 import { getPrismicClient } from '../../services/prismic';
 import { RichText } from 'prismic-dom';
 import Prismic from '@prismicio/client'
+import { Browser } from 'phosphor-react';
 
 export interface LocalProps {
   local: {
@@ -36,6 +38,7 @@ export interface LocalProps {
     facebook: string;
     whatsapp: string;
     phone: string;
+    site: string;
     open: string;
     exit: string;
     photo01: string,
@@ -49,6 +52,7 @@ export interface LocalProps {
     address_road: string;
     address_neighborhood: string;
     house_number: string;
+    video: string;
     gallery: {
       photo01: string;
       photo02: string;
@@ -151,7 +155,6 @@ export default function place({ local }: LocalProps){
                 </>
               }
 
-
               <div style={{
                 background: '#D54344',
                 width: '166px'
@@ -159,18 +162,24 @@ export default function place({ local }: LocalProps){
                 <FaPhone />
                 <span>{local.phone}</span>
               </div>
-                
-              
             </SocialMedia>
             
+            {local.site === null ? <div/> :
+              <Site>
+                <div>
+                  <Browser />
+                  <a href={local.site}>Site Profissional</a>
+                </div> 
+              </Site>
+            }
           </div>
-       
 
-       
           <div className='Localizacao'>
+            
             <h2>Endereço:</h2>
-
-            <p>{local.address_city}, {local.address_state}</p>
+            {local.address_city === null ? <div /> :
+              <p>{local.address_city}, {local.address_state}</p>
+            }
             {local.address_road === null ? <div/> :
               <>
                 <p>{local.address_road}, {local.address_neighborhood}</p>
@@ -178,41 +187,42 @@ export default function place({ local }: LocalProps){
               </>
             }
           </div>
+          
+          {local.video === null ? <div/> :
+            <div className="youtube">
+              <iframe width="495" height="315"
+                src={`https://www.youtube.com/embed/${local.video}`}>
+              </iframe>
+            </div>
+           }
       </Content>
 
       <ContentLeft>
         <Background src={local.banner} width={743} height={930}/>
-        
-
+      
         <ContentMedia>
-        <div>
-        {/*<h1>Youtube</h1>
-        <iframe width="495" height="315"
-          src="https://www.youtube.com/embed/tgbNymZ7vqY">
-          </iframe>*/}
-        </div>
-
-            <Gallery>
-              <h1>Galeria de fotos</h1>
-              {local.gallery.map(local => {
-                return (
-                  <>
-                    <div>
-                      <img src={local.photo01}/>
-                      <img src={local.photo02}/>
-                      
-                    </div>
-                    <div className='gallerySecondary'>
-                      <img src={local.photo03}/>
-                      <img src={local.photo04}/>
-                      <img src={local.photo05}/>
-                      <img src={local.photo06}/>
-                    </div>
-                  </>
-                )
-              })}
-             
-            </Gallery>
+            {local.gallery[0].photo01 === null ? <div/> :
+              <Gallery>
+                <h1>Galeria de fotos</h1>
+                {local.gallery.map(local => {
+                  return (
+                    <>
+                      <div>
+                        <img src={local.photo01}/>
+                        <img src={local.photo02}/>
+                        
+                      </div>
+                      <div className='gallerySecondary'>
+                        <img src={local.photo03}/>
+                        <img src={local.photo04}/>
+                        <img src={local.photo05}/>
+                        <img src={local.photo06}/>
+                      </div>
+                    </>
+                  )
+                })}
+              </Gallery>
+            }
         </ContentMedia> 
       </ContentLeft>
     </Container>
@@ -266,13 +276,13 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
   // console.log(slug)
   const response = await prismic.getByUID<any>('locale', String(slug), {})
 
-  // console.log(JSON.stringify(response, null, 2))
+  console.log(JSON.stringify(response, null, 2))
 
 
 
   const local = {
     slug: response.uid,
-    banner: response.data.banner_local_vertical.url,
+    banner: response.data.banner_local_vertical.url || null,
     title: RichText.asText(response.data.title),
     description_local: RichText.asHtml(response.data.description_local),
     open: response.data.aberto, 
@@ -281,11 +291,13 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     facebook:response.data.facebook.url || null,
     whatsapp:response.data.whatsapp || null,
     phone: response.data.phone || null,
+    site: response.data.professional_website.url || null,
     address_state: RichText.asText(response.data.address_state) || null,
     address_city: RichText.asText(response.data.address_city) || null,
     address_road: RichText.asText(response.data.address_road) || null,
     address_neighborhood: RichText.asText(response.data.address_neighborhood) || null,
     house_number: RichText.asText(response.data.house_number) || null,
+    video: RichText.asText(response.data.id_do_video) || null,
  
     gallery: response.data.gallery.map((
       gallery: { 
@@ -316,11 +328,3 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     }
   }
 }
-
-
-// photo01: response.data.gallery.photo01 || null,
-//     photo02: response.data.gallery.photo02 || null,
-//     photo03: response.data.gallery.photo03 || null,
-//     photo04: response.data.gallery.photo04 || null,
-//     photo05: response.data.gallery.photo05 || null,
-//     photo06: response.data.gallery.photo06 || null,
