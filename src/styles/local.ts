@@ -139,6 +139,11 @@ export const SocialMedia = styled.div`
     }
 `;
 
+export const ContentLeft = styled.div`
+  margin: 0 auto
+
+`;
+
 export const Background = styled.img`
   margin-top: -80px;
   flex: 1;
@@ -149,7 +154,6 @@ export const Background = styled.img`
 
 export const ContentMedia = styled.section`
   display: grid;
-  grid-template-columns: 1fr 1fr;
   margin-top: 36px;
 
   h1 {
@@ -185,8 +189,8 @@ export const Gallery = styled.div`
     gap: 6px;
 
     img {
-      width: 287px;
-      margin: 0 auto;
+      max-width: 375px;
+      /* margin: 0 auto; */
       border-radius: 4px;
 
       object-fit: cover;

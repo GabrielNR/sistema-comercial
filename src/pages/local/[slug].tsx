@@ -15,6 +15,7 @@ import {
   Background,
   ContentMedia,
   Gallery,
+  ContentLeft,
   Doubts,
 } from '../../styles/local'
 
@@ -149,31 +150,37 @@ export default function place({ local }: LocalProps){
         </div>
 
       </Content>
-      <Background src={local.banner} width={743} height={930}/>
-    </Container>
-    {/* <ContentMedia>
-      <div>
-      <h1>Youtube</h1>
-      <iframe width="495" height="315"
-        src="https://www.youtube.com/embed/tgbNymZ7vqY">
-        </iframe>
-      </div>
-       
 
-        <Gallery>
-          <h1>Galeria de fotos</h1>
-          <div>
-            <img src='/carregar.png'/>
-            <img src='/carregar.png'/>
-          </div>
-          <div className='gallerySecondary'>
-            <img src='/carregar.png'/>
-            <img src='/carregar.png'/>
-            <img src='/carregar.png'/>
-            <img src='/carregar.png'/>
-          </div>
-        </Gallery>
-      </ContentMedia> */}
+      <ContentLeft>
+        <Background src={local.banner} width={743} height={930}/>
+      
+        <ContentMedia>
+        <div>
+        {/*<h1>Youtube</h1>
+        <iframe width="495" height="315"
+          src="https://www.youtube.com/embed/tgbNymZ7vqY">
+          </iframe>*/}
+        </div>
+        
+
+          <Gallery>
+            <h1>Galeria de fotos</h1>
+            <div>
+              <img src={local.banner}/>
+              <img src={local.banner}/>
+              
+            </div>
+            <div className='gallerySecondary'>
+              <img src={local.banner}/>
+              <img src={local.banner}/>
+              <img src={local.banner}/>
+              <img src={local.banner}/>
+            </div>
+          </Gallery>
+        </ContentMedia> 
+      </ContentLeft>
+    </Container>
+    
     
       {/* <Doubts> */}
         {/* <p>Duvidas frequentes</p>
