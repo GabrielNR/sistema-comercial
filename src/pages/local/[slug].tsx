@@ -298,12 +298,12 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
         
       }) => {
       return {
-        photo01: gallery.photo01.url,
-        photo02: gallery.photo02.url,
-        photo03: gallery.photo03.url,
-        photo04: gallery.photo04.url,
-        photo05: gallery.photo05.url,
-        photo06: gallery.photo06.url,
+        photo01: gallery.photo01.url || null,
+        photo02: gallery.photo02.url || null,
+        photo03: gallery.photo03.url || null,
+        photo04: gallery.photo04.url || null,
+        photo05: gallery.photo05.url || null,
+        photo06: gallery.photo06.url || null,
       }
     })
   }
