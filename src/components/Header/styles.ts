@@ -4,7 +4,10 @@ export const Container = styled.header`
   height: 5rem;
   border-bottom: 1px solid ${(props) => props.theme["shape02"]};
   background-color: ${(props) => props.theme["shape01"]};
-
+  
+  @media (max-width: 420px) {
+    height: 6rem;
+  }
 `
 
 export const HeaderContent = styled.div`
@@ -15,12 +18,49 @@ export const HeaderContent = styled.div`
 
   display: flex;
   align-items: center;
+
+
+  @media (max-width: 720px) {
+    padding: 14px;
+  }
+
+  @media (max-width: 620px) {
+    padding: 12px;
+  }
+
+  @media (max-width: 520px) {
+    padding: 10px;
+  }
+
+  @media (max-width: 420px) {
+    padding: 6px;
+  }
+
+  @media (max-width: 320px) {
+    padding: 6px;
+  }
 `
 
 export const Image = styled.img`
   height: 42px;
   justify-content: center;
   align-items: center;
+
+  @media (max-width: 720px) {
+    height: 36px;
+  }
+
+  @media (max-width: 620px) {
+    height: 32px;
+  }
+
+  @media (max-width: 420px) {
+    height: 28px;
+  }
+
+  @media (max-width: 320px) {
+    height: 24px;
+  }
 `;
 
 export const Nav = styled.nav`
@@ -53,17 +93,17 @@ export const Nav = styled.nav`
    }
 
    ::placeholder {
-      margin-left: 16px;
+     margin-left: 1rem;
      font-style: normal;
      font-weight: 400;
-     font-size: 16px;
-     line-height: 26px;
+     font-size: 1rem;
+     line-height: 1.625;
 
       color: #A0ACB3;
   }
 
     svg {
-     margin-right: 16px;
+     margin-right: 1rem;
    }
 
 //     a {
@@ -100,12 +140,37 @@ export const Nav = styled.nav`
 //         background-color: #eba417;
 //       }
 //     }
+
+
+  @media (max-width: 720px) {
+    width: 350px;
+    padding: 14px;
+  }
+
+  @media (max-width: 620px) {
+    width: 300px;
+    padding: 14px;
+  }
+
+  @media (max-width: 420px) {
+    width: 240px;
+    padding: 10px;
+  }
+
+  @media (max-width: 320px) {
+    width: 200px;
+    padding: 8px;
+  }
 `;
 
 export const Buttons = styled.div`
   display: flex;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+
+  @media (max-width: 520px) {
+    display: none;
+  }
 `;
 
 export const Button = styled.button`

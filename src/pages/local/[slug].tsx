@@ -168,7 +168,7 @@ export default function place({ local }: LocalProps){
               <Site>
                 <div>
                   <Browser />
-                  <a href={local.site}>Site Profissional</a>
+                  <a href={local.site} target="_blank">Site Profissional</a>
                 </div> 
               </Site>
             }

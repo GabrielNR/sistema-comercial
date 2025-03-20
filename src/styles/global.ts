@@ -20,8 +20,29 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
+  @media (max-width: 620px) {
+    html {
+      font-size: 80%;
+    }
+  }
 
+  @media (max-width: 520px) {
+    html {
+      font-size: 75%;
+    }
+  }
 
+  @media (max-width: 420px) {
+    html {
+      font-size: 65%;
+    }
+  }
+
+  @media (max-width: 420px) {
+    html {
+      font-size: 62.5%;
+    }
+  }
 
   body {
     background: #F5F8FA;

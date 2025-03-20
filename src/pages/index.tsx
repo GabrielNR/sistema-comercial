@@ -38,6 +38,7 @@ interface CitiesProps {
 }
 
 export default function Home({ cities }: CitiesProps ) {
+  
 
   return (
     <>
@@ -50,7 +51,6 @@ export default function Home({ cities }: CitiesProps ) {
 {/* Inicio do Main */}
      <Wrapper>
         <Title>Selecione uma Cidade</Title>
-
          <Cards>
           {cities.map(city => {
             return (
@@ -64,22 +64,43 @@ export default function Home({ cities }: CitiesProps ) {
             )
           })}
         </Cards>
-      </Wrapper>
+
+      <div className="watsapp">
+        <link 
+          rel="stylesheet" 
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" 
+        />
+          <a href="https://wa.me/5521967007447"
+            style={{
+              position: "fixed", 
+              width: 60, 
+              height:60, 
+              bottom:40, 
+              right: 40, 
+              backgroundColor: "#25d366", 
+              color: "#FFF", 
+              borderRadius: 50, 
+              textAlign: "center", 
+              fontSize: 30, 
+              boxShadow: "1px 1px 2px #888", 
+              zIndex: 1000,
+              
+            }}
+            target="_blank"
+          >
+            <i style={{marginTop: 16}} className="fa fa-whatsapp">
+            
+            </i>
+        </a>
+      </div>
+     </Wrapper>
 {/* Fim do Main */}
 
 {/* Footer */}
 
 {/* Fim Footer */}
+      
 
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
-        <a href="https://wa.me/5521967007447"
-          style={{position: "fixed", width: 60, height:60, bottom:40, right: 40, backgroundColor: "#25d366", color: "#FFF", borderRadius: 50, textAlign: "center", fontSize: 30, boxShadow: "1px 1px 2px #888", zIndex: 1000}}
-          target="_blank"
-        >
-          <i style={{marginTop: 16}} className="fa fa-whatsapp">
-          
-        </i>
-      </a>
   </>
   )
 }
@@ -91,7 +112,7 @@ export const getStaticProps: GetStaticProps = async () => {
     Prismic.predicates.at('document.type', 'cities')
   ], {
     fetch: ['cities.city, cities.thmbnail', 'cities.quantidade'],
-    pageSize: 100
+    pageSize: 100,
   })
 
   console.log(JSON.stringify(response, null, 2))
