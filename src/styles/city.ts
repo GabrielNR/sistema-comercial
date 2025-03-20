@@ -15,25 +15,30 @@ export const ContentDescription = styled.div`
   margin-top: 26px;
   display: grid; 
   grid-template-columns: 1fr 1fr;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    
+  }
 `;
 
 export const Description = styled.div`
   h1 {
     margin-bottom: 16px;
-    font-size: 54px;
-    line-height: 54px;
+    font-size: 3.375rem;
+    line-height: 3.375rem;
     font-weight: 600;
     font-family: 'montserrat';
   };
   p {
     margin-bottom: 12px; 
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 1.25rem;
+    line-height: 1.875rem;
     font-weight: 400;
     font-family: 'montserrat';
   };
   span {
-    font-size: 16px;
+    font-size: 1rem;
     color: #617480;
     line-height: 26px;
     font-family: 'montserrat';
@@ -49,11 +54,16 @@ export const ContentPoint = styled.div`
     gap: 16px;
     list-style: none;
 
+    @media (max-width: 1024px) {
+      margin-top: 30px;
+      grid-template-columns: repeat(5, 1fr);
+    }
+
     li {
       background: #FFFFFF;
       border: 1px solid #FFFFFF;
       height: 268px;
-      width: 160px;
+      width: 10rem;
       border-radius: 8px;
       /* padding: 32px 24px 16px; */
 
@@ -121,6 +131,18 @@ export const Cards = styled.div`
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 34px;
   margin-bottom: 36px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (max-width: 720px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 430px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const Card = styled.div`
@@ -130,8 +152,13 @@ export const Card = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 256px;
+  /* width: 256px; */
+  width: 100%;
   height: 172px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 `;
 
 export const Text = styled.div`
