@@ -65,12 +65,14 @@ export const Card = styled.div`
 
 export const Image = styled.img`
   width: 100%;
-  height: 11rem;
+  height: 176px;
   border-radius: 16px 16px 0 0;
 
-  @media (max-width: 420px) {
-    height: 15rem;
+  @media (max-width: 425px) {
+    height: 176px
   }
+
+  
 `;
 
 export const Text = styled.div`
