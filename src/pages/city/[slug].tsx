@@ -10,6 +10,7 @@ import { Header } from '../../components/Header'
 import { getPrismicClient } from '../../services/prismic';
 
 import { FiCoffee, FiCalendar, FiLayers } from 'react-icons/fi'
+import { MdTouchApp } from "react-icons/md";
 import { 
   ContentImage,
   Content,
@@ -35,7 +36,14 @@ interface CityProps {
     descriptionspan: string;
     coffe_drinks: number;
     events: number;
-    marketing: number
+    marketing: number;
+    local_rated: {
+      thmbnail_local: string;
+      category: string;
+      title_local: string;
+      local: string;
+      slug: string;
+    }[]
     local100: {
       thmbnail_local: string;
       category: string;
@@ -119,24 +127,25 @@ export default function city({ city }: CityProps){
       </Content>
 
       <TopRated>
-            {/* <h1>Top avaliados</h1> */}
+            <h1>Top avaliados</h1>
 
           <Cards>
-            {/* {city.local100.map(local => { */}
-               {/* return ( */}
-              {/* <Card key={local.thmbnail_local}> */}
-                {/* <a href={`/local/${local.slug}`}> */}
-                 {/* <Image src={local.thmbnail_local} /> */}
-                {/* </a>  */}
-                 {/* <Text>{local.title_local}</Text>  */}
-                {/* <hr/>  */}
-                 {/* <Span>  */}
-                  {/* {local.category}  */}
-                  {/* <FiCoffee size={24}/>  */}
-               {/* </Span> */}
-              {/* </Card>  */}
-             {/* )  */}
-           {/* })}  */}
+           {city.local_rated.map(local => { 
+              return ( 
+             <Card key={local.thmbnail_local}> 
+               <a href={`/local/${local.slug}`}> 
+                <Image src={local.thmbnail_local} /> 
+               </a>  
+                <Text>{local.title_local}</Text>  
+               {/* <hr/>   */}
+                <Span>  
+                 {local.category}
+                 {local.category === "Digital" ? <MdTouchApp size={22}/> : <FiCoffee size={22}/> }
+                 {/*   */}
+              </Span> 
+             </Card>  
+            )  
+          })}  
             
           </Cards>
           
@@ -217,6 +226,14 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     coffe_drinks: response.data.coffe_e_drinks,
     events: response.data.events,
     marketing: response.data.marketing,
+    local_rated: response.data.local_rated.map((local: { thmbnail_local: { url: any; }; category: any; title_local: any; locale: { uid: any; }; }) => {
+      return {
+        thmbnail_local: local.thmbnail_local.url,
+        category:  RichText.asText(local.category),
+        title_local: RichText.asText(local.title_local),
+        slug: local.locale.uid
+      }
+    }),
     local100: response.data.local100.map((local: { thmbnail_local: { url: any; }; category: any; title_local: any; locale: { uid: any; }; }) => {
       return {
         thmbnail_local: local.thmbnail_local.url,

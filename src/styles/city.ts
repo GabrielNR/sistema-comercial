@@ -182,8 +182,12 @@ export const Span = styled.text`
   line-height: 28px;
   color: #617480;
   margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   svg {
     margin-left: 50px;
+    margin-right: 50px;
   }
 `;

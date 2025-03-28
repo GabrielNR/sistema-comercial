@@ -267,6 +267,7 @@ export const Gallery = styled.div`
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 6px;
     margin-top: 6px;
+    margin-bottom: 12px;
 
     @media (max-width: 430px) {
       grid-template-columns: 1fr 1fr;
@@ -284,6 +285,7 @@ export const Gallery = styled.div`
 
   @media (max-width: 430px) {
     padding: 0 2rem;
+
   }
 `
 
