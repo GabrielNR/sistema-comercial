@@ -18,7 +18,7 @@ export const Header = styled.header`
     align-items: center;
 
     img {
-      height: 42px;
+      height: 2.625rem;
       justify-content: center;
       align-items: center;
     }
@@ -33,6 +33,11 @@ export const Container = styled.main`
   display: grid;
   grid-template-columns: 1fr 1fr;
 
+  @media (max-width: 430px) {
+    grid-template-columns: 1fr;
+    
+  }
+
 
 `;
 
@@ -41,17 +46,18 @@ export const Content = styled.section`
   margin: 0 auto;
 
   padding: 0 2rem;
+
   h1 {
-    margin-bottom: 16px;
-    margin-top: 16px;
-    font-size: 48px;
-    line-height: 54px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    font-size: 3rem;
+    line-height: 3.375rem;
     font-weight: 600;
     font-family: 'montserrat';
   }
 
   p{
-    margin-bottom: 12px; 
+    margin-bottom: 0.75rem; 
     font-size: 20px;
     line-height: 30px;
     font-weight: 400;
@@ -62,6 +68,17 @@ export const Content = styled.section`
     font-size: 24px;
     line-height: 34px;
     margin-top: 12px;
+  }
+
+  img {
+    display: none;
+
+    @media (max-width: 430px) {
+      display: block;
+      margin-bottom: 16px;
+      width: 495.86px;
+      height: 311px;
+    }
   }
 
   .Localizacao{
@@ -185,6 +202,10 @@ export const Background = styled.img`
   flex: 1;
   /* background: url('/doce_companhiaVerical.png') no-repeat center; */
   background-size: cover;
+
+  @media (max-width: 430px) {
+    display: none;
+  }
   
 `;
 
@@ -223,22 +244,33 @@ export const Gallery = styled.div`
     grid-template-columns: 1fr 1fr;
     gap: 6px;
 
+    @media (max-width: 430px) {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+
     img {
       max-width: 375px;
       /* margin: 0 auto; */
       border-radius: 4px;
 
       object-fit: cover;
+
+      @media (max-width: 430px) {
+        max-width: 100%; 
+      }
     }
   }
   
-
-
   .gallerySecondary {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 6px;
     margin-top: 6px;
+
+    @media (max-width: 430px) {
+      grid-template-columns: 1fr 1fr;
+    }
 
    img {
     width: 100%;
@@ -248,6 +280,10 @@ export const Gallery = styled.div`
     border-radius: 4px;
     object-fit: cover;
   }
+  }
+
+  @media (max-width: 430px) {
+    padding: 0 2rem;
   }
 `
 

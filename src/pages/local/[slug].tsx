@@ -78,6 +78,7 @@ export default function place({ local }: LocalProps){
     <Container>
       <Content>
         <h1>{local.title}</h1>
+        <img src={local.banner}></img>
         <div dangerouslySetInnerHTML={{ __html: local.description_local }}/>
       
           <div>
