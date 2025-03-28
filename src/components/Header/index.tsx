@@ -17,7 +17,9 @@ export function Header(){
   return(
     <Container>
       <HeaderContent>
-        <Link href="/" prefetch><Image src="/logo.png"/></Link>
+        <Link href="/" prefetch>
+          <Image src="/logo.png"/>
+        </Link>
         <Nav>
           <input 
             placeholder="Qual cidade você"
@@ -26,11 +28,12 @@ export function Header(){
             size={20} 
             color="#A0ACB2"
           />
-          </Nav>
-          <Buttons>
-            <Button><Link href="https://wa.me/+5521967007447" prefetch>Anunciar</Link></Button>
-            {/* <Button><Link href="/" prefetch>GuiaCast</Link></Button> */}
-          </Buttons>
+        </Nav>
+        
+        <Buttons>
+          <Button><Link href="https://wa.me/+5521967007447" prefetch>Anunciar</Link></Button>
+          {/* <Button><Link href="/" prefetch>GuiaCast</Link></Button> */}
+        </Buttons>
       </HeaderContent> 
     </Container>
     

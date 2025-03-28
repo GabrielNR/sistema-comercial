@@ -195,6 +195,15 @@ export default function place({ local }: LocalProps){
               </iframe>
             </div>
            }
+
+           <div>
+              {/* <audio src="https://www.youtube.com/watch?v=lI56oteTAmc&t=12s"> */}
+              {/* <audio src="http://67.212.165.106:8028/stream" controls preload="none" autoplay></audio> */}
+            {/* </audio> */}
+
+            {/* <audio controls src={local.audio}>
+            </audio> */}
+           </div>
       </Content>
 
       <ContentLeft>
@@ -298,6 +307,7 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     address_neighborhood: RichText.asText(response.data.address_neighborhood) || null,
     house_number: RichText.asText(response.data.house_number) || null,
     video: RichText.asText(response.data.id_do_video) || null,
+
  
     gallery: response.data.gallery.map((
       gallery: { 

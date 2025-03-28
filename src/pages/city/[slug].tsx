@@ -1,4 +1,15 @@
+// Imports
+import { GetStaticPaths, GetStaticProps, NextApiRequest } from 'next';
 import Head from 'next/head'
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+import { RichText } from 'prismic-dom';
+import Prismic from '@prismicio/client'
+
+import { Header } from '../../components/Header'
+import { getPrismicClient } from '../../services/prismic';
+
+import { FiCoffee, FiCalendar, FiLayers } from 'react-icons/fi'
 import { 
   ContentImage,
   Content,
@@ -14,16 +25,7 @@ import {
   Span,
 } from '../../styles/city'
 
-import { FiCoffee, FiCalendar, FiLayers } from 'react-icons/fi'
-import { Header } from '../../components/Header'
-import { useEffect, useState } from 'react';
-import { GetStaticPaths, GetStaticProps, NextApiRequest } from 'next';
-import { useRouter } from 'next/router';
-import { getPrismicClient } from '../../services/prismic';
-import { RichText } from 'prismic-dom';
-import Prismic from '@prismicio/client'
-
-
+// Interface
 interface CityProps {
   city: {
     slug: string;
@@ -44,8 +46,7 @@ interface CityProps {
   }
 }
 
-
-
+// Função Principal
 export default function city({ city }: CityProps){
 
   if (Array.isArray(city.local100)) {
@@ -58,7 +59,7 @@ export default function city({ city }: CityProps){
   return(
     <>
       <Head>
-        <title>Cidade X | Guia747</title>
+        <title>Cidade {city.title} | Guia747</title>
       </Head>
 
       <Header/>
